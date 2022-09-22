@@ -36,13 +36,17 @@ int main() {
     }
     initializeA(order, A, coefficients);
 
+    
 }
 
 
 void initializeX(int order, float *x, float *initials) {
+    cout << "x vector: \n";
     for (int i = 0; i < order; i++) {
         x[i] = initials[i];
+        cout << x[i] << "\n";
     }
+
 }
 
 void initializeA(int order, float **A, float *coeffiecients) {
