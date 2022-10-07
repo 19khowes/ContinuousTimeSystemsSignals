@@ -46,7 +46,6 @@ int main() {
     for (float t = startTime; t <= endTime; t += dt) {
         matrixVecMult(order, A, x, newx);
         // write newx's x1 to file with time t
-        cout << "next solution: " << newx[0] << "\n";
         outfile << t << " " << newx[0] << endl;
         // change x = newx for next iteration
         for (int i = 0; i < order; i++) {
