@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage{color}
 \usepackage{bm}
+\usepackage[final]{pdfpages}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -69,13 +70,13 @@ Proof:}}{\nopagebreak[4]\rule{2mm}{2mm}}}
 \section*{1.}
 \textit{The program should be written in C or C++. Only libraries from the C/C++ standard libraries
 are permitted. No other external libraries should be used – you are writing the entire program from
-scratch. You must write all of the code necessary for the processing.}
+scratch. You must write all of the code necessary for the processing.}\\
 
-View AppendixA for C++ code.
+View Appendix A for C++ code.
 
 \noindent \underline{\hspace{7in}}\\
 \section*{2.}
-\textit{for the differential equation}
+\textit{For the differential equation}
 \begin{center}
     \begin{align*}
         (D + 2.5)y_0(t) = 0
@@ -86,7 +87,7 @@ View AppendixA for C++ code.
 
 \subsection*{2a}
 
-\textit{Find and plot the analytical (exact) solution to the differential equation for $0 \le t \le 10$.}
+\textit{Find and plot the analytical (exact) solution to the differential equation for $0 \le t \le 10$.}\\
 
 From the characteristic equation:
 \begin{center}
@@ -95,16 +96,17 @@ From the characteristic equation:
     \end{align*}
 \end{center}
 
-We know $\lambda = -2.5$. So the form for the solution $y_0(t)$ is: 
+We know $\lambda = -2.5$. So the solution for $y_0(t)$ is: 
 \begin{center}
     \begin{align*}
-        y_0(t) = Ce^{-2.5t}
-        \implies C = y_0(0) = 3
+        y_0(t) = Ce^{-2.5t}\\
+        \text{where}\\
+        C = y_0(0) = 3\\
         \implies y_0(t) = 3e^{-2.5t}
     \end{align*}
 \end{center}
 
-This result in a plot shown below in Figure 2a: 
+This results in a plot shown below in Figure 2a. 
 
 \begin{figure}[H]
     \centering
@@ -127,7 +129,7 @@ Putting the differential equation and initial condition into my program with a $
 \subsection*{2c}
 \textit{Compare the exact solution with the approximate solution.}\\
 
-As seen in the comparison of Figure 2a and Figure 2b, the plot are essentially identical. The approximate solution conformed well to the exact solution.
+As seen in the comparison of Figure 2a and Figure 2b, the plot are essentially identical. The approximate solution conformed well to the exact solution, with the almost exactly the same shape and rate of change.
 
 \noindent \underline{\hspace{7in}}\\
 \section*{3.}
@@ -143,7 +145,7 @@ As seen in the comparison of Figure 2a and Figure 2b, the plot are essentially i
 \subsection*{3a}
 
 \textit{Find and plot the analytical solution to the differential equation for $0 \le t \le 10$. Identify the roots
-of the characteristic equation and plot them in the complex plane}
+of the characteristic equation and plot them in the complex plane}.\\
 
 Using an online cubic root calculator as approved results in the following roots: $\lambda = 0.1, -0.25 \pm 5j$.\\
 
@@ -174,9 +176,9 @@ Using a calculator to solve for $C$, $A$, and $\theta$:
     \end{align*}
 \end{center}
 
-Which holds since $C$ must equal 1.5 and $\theta$ must equal $\frac{\pi}{2}$ by inspection of the numerical plot solution shown later in Figure 3b.
+Which holds since $C$ must equal 1.5 and $\theta$ must equal $\frac{\pi}{2}$ by inspection of the numerical plot solution shown later in Figure 3c.
 
-This gives to solution for $y_0(0)$: 
+Thus the solution $y_0(t)$ is 
 
 \begin{center}
     \begin{align*}
@@ -184,18 +186,19 @@ This gives to solution for $y_0(0)$:
     \end{align*}
 \end{center}
 
-Plotting this function results in the plot shown below in Figure 3a.
+Plotting this function results in the graph shown below in Figure 3a.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale = .6]{analytical3_a.png}\\
+    \includegraphics[scale = .75]{analytical3_a.png}\\
     Figure 3a
 \end{figure}
 
-Here is the plot of the roots of the characteristic equation on the complex plane:
+Here is the plot of the roots of the characteristic equation on the complex plane (Figure 3b):
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale = .5]{complexPlane2.png}
+    \includegraphics[scale = .5]{complexPlane2.png}\\
+    \textit{Figure 3b}
 \end{figure}
 
 \subsection*{3b}
@@ -219,7 +222,11 @@ State-space form should be $\dot{\boldsymbol{x}}(t) = A\boldsymbol{x}(t)$.
         0 & 0 & 1\\
         -2.5063 & -25.1125 & -0.6
         \end{bmatrix}
-        \boldsymbol{x}(t)
+        \begin{bmatrix}
+        x_1(t)\\
+        x_2(t)\\
+        x_3(t)
+        \end{bmatrix}
     \end{align*}
 \end{center}
 
@@ -227,18 +234,18 @@ State-space form should be $\dot{\boldsymbol{x}}(t) = A\boldsymbol{x}(t)$.
 \textit{Write a program in C(++) to plot an approximate solution using (8). You may have to try several
 values of $\Delta t$ to get a reasonable approximation.}\\
 
-Putting the differential equation and initial conditions into my program with a $\Delta t$ of 0.001 results in the plot shown below in Figure 3b:
+Putting the differential equation and initial conditions into my program with a $\Delta t$ of 0.001 results in the plot shown below in Figure 3c:
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale = .6]{programSoln3_a.png}\\
-    Figure 3b
+    \textit{Figure 3c}
 \end{figure}
 
 \subsection*{3d}
 \textit{Compare the exact solution with the approximate solution.}\\
 
-As can be seen in the comparison of the plots shown in Figure 3a and Figure 3b, the exact solution and approximate solution are very close. The approximate solution produced by the program was accurate.
+As can be seen in the visual comparison of the plots shown in Figure 3a and Figure 3c, the exact solution and approximate solution are very close. The approximate solution produced by the program was accurate and follows the form we would expect to see from the exact solution. This is a exponentially decreasing damped oscillating waveform.
 
 
 \noindent \underline{\hspace{7in}}\\
@@ -251,6 +258,172 @@ As can be seen in the comparison of the plots shown in Figure 3a and Figure 3b, 
 
 \textit{where $R_1 = 1$ kΩ, $R_2 = 22$ kΩ, $C = 10$ µF, and $L = 5$ H.}
 
+\subsection*{4a}
+\textit{Determine a differential equation relating the input $f(t)$ to the output $y(t)$.}\\
+
+Using mesh current loops $i_1(t)$ (clockwise in the left loop) and $i_2(t)$ (clockwise in the right loop) results in the equations: 
+\begin{center}
+    \begin{align*}
+        f(t) = LDi_1(t) + R_1(i_1(t) - i_2(t))\\
+        0 = R_2(i_2(t)) + \frac{1}{CD}i_2(t) + R_1(i_2(t) - i_1(t))\\
+        \implies f(t) = (LD + R) i_1(t) - R_1i_2(t)\\
+        0 = -R_1i_1(t) + (\frac{1}{CD} + R_1 + R_2)i_2(t)\\
+    \end{align*}
+\end{center}
+
+converting to matrix form: 
+\begin{center}
+    \begin{align*}
+        \begin{bmatrix}
+        LD + R_1 & -R_1\\
+        -R_1 & \frac{1}{CD} + R_1 + R_2
+        \end{bmatrix}
+        \begin{bmatrix}
+        i_1(t)\\
+        i_2(t)
+        \end{bmatrix} = 
+        \begin{bmatrix}
+        f(t)\\
+        0
+        \end{bmatrix}
+    \end{align*}
+\end{center}
+
+using Cramer's rule (more detail shown in handwork in Appendix B):
+\begin{center}
+    \begin{align*}
+        i_2(t) = \frac{R_1f(t)}{(LD+R_1)(\frac{1}{CD} + R_1 + R_2) - R_1^2}\\
+        \implies \left[ D^2 + D\frac{R_1R_2C + L}{LR_1C + LR_2C} + \frac{R_1}{LR_1C + LR_2C} \right]y(t) = R_1f(t)\\
+        = \left[ D^2 + 195.652D + 869.565 \right]y(t) = 1000f(t)
+    \end{align*}
+\end{center}
+
+\subsection*{4b}
+\textit{Determine the initial condition for $\dot{y}(t)$ if $i_1(0) = 0.2$ A and $y(0) = 5$ V.}\\
+
+Using the same mesh current loops when $t=0$ results in the loop equation:
+\begin{center}
+    \begin{align*}
+        R_2i_2(0) + 5 + R_1(i_2(0) - 0.2) = 0\\
+        \implies i_2(0) = \frac{0.2R_1 - 5}{R_1 + R_2} = 0.00848\\
+        \dot{y}(0) = \frac{i_2(0)}{C} = 847.826 \frac{V}{s}
+    \end{align*}
+\end{center}
+
+\subsection*{4c}
+\textit{Determine the analytical solution for the zero-input response of the system with these initial
+conditions}\\
+
+Starting with the characteristic equation 
+\begin{center}
+    \begin{align*}
+        \left[ D^2 + 195.652D + 869.565 \right]y_0(t) = 0
+    \end{align*}
+\end{center}
+
+Then, using the quadratic formula (more details shown in Appendix B) results in the characteristic roots $\lambda = -4.5503, -191.1019$.\\
+
+So, the form of the solution is $y_0(t) = C_1e^{-4.5503t} + C_2e^{-191.1019t}$.\\
+
+Finding $\dot{y}_0(t)$ and using initial conditions results in the system of equations: 
+\begin{center}
+    \begin{align*}
+        5 = C_1 + C_2\\
+        847.826 = -4.5503C_1 - 191.1019C_2
+    \end{align*}
+\end{center}
+
+Putting into matrix form:
+\begin{center}
+    \begin{align*}
+        \begin{bmatrix}
+        1 & 1\\
+        -4.5503 & 191.1019
+        \end{bmatrix}
+        \begin{bmatrix}
+        C_1\\
+        C_2
+        \end{bmatrix} = 
+        \begin{bmatrix}
+        5\\
+        847.826
+        \end{bmatrix}
+    \end{align*}
+\end{center}
+
+Solving for $C_1, C_2 \implies C_1 = 9.\Bar{6}$ and $C_2 = -4.\Bar{6}$. \\
+
+So the analytical solution for the zero-input response is: 
+\begin{center}
+    \begin{align*}
+        y_0(t) = 9.\Bar{6}e^{-4.5503t} + 4.\Bar{6}e^{-191.1019t}
+    \end{align*}
+\end{center}
+
+\subsection*{4d}
+\textit{Represent the differential equation for the circuit in state space form.}\\
+
+let $x_1(t) = y_0(t)$, and $x_2(t) = \dot{y}_0(t)$.
+
+State-space form should be $\dot{\boldsymbol{x}}(t) = A\boldsymbol{x}(t)$.
+
+\begin{center}
+    \begin{align*}
+        A = \begin{bmatrix}
+        0 & 1\\
+        -869.565 & -195.652\\
+        \end{bmatrix}\\
+        \dot{\boldsymbol{x}}(t) = 
+        \begin{bmatrix}
+        0 & 1\\
+        -869.565 & -195.652\\
+        \end{bmatrix}
+        \begin{bmatrix}
+        x_1(t)\\
+        x_2(t)
+        \end{bmatrix}
+    \end{align*}
+\end{center}
+
+\subsection*{4e}
+\textit{Using your program, determine a numerical solution to the differential equation for the zero-input
+response.}\\
+
+Putting the characteristic equation into my program with the initial conditions for $y_0(0) = 5$ V and $\dot{y}_0(0) = 847.826 \frac{V}{s}$ with a $\Delta t = .001$ s results in the plot shown in Figure 4b.
+
+\subsection*{4f}
+\textit{Plot and compare the analytical and the numerical solution. Comment on your results.}\\
+
+Figure 4a below shows the plot of the analytical solution $y_0(t) = 9.\Bar{6}e^{-4.5503t} + 4.\Bar{6}e^{-191.1019t}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = .75]{analytical4_e.png}\\
+    \textit{Figure 4a}
+\end{figure}
+
+Figure 4b below shows the plot of the numerical solution output by my program with $\Delta t = .001$ s.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = .75]{programSoln4_e.png}\\
+    \textit{Figure 4b}
+\end{figure}
+
+As seen in the visual comparison of the Figure 4a and Figure 4b above, the analytical and numerical solutions are very close to identical. Visually, it is near impossible to tell a difference. Of course, when changing $\Delta t$ to something larger than .001 (.005 for example) causes increased inaccuracies in the numerical solution. This error is propagated more intensely around points with large rates of change, such as the peak seen at the beginning of the waveform in either figure. Figure 4c below is the numerical solution with $\Delta t = 0.005$, which causes the two solutions to have more variation between them, as seen especially around the peak. This applies for all numerical solutions: \textbf{The larger the $\Delta t$, the less accurate the approximation will be.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = .75]{newDelta.png}\\
+    \textit{Figure 4c}
+\end{figure}
+
+\subsection*{4g}
+\textit{Suppose that the circuit had nonlinear element in it, such as dependent sources. Describe how the analytical solution and numerical solution would change.}\\
+
+First, an important phrase is \textit{non-linear}. That meanse we could not use either of our standard methods for solving shown in this report (analytical or numerical methods), which are for linear systems only. 
+
+Secondly, since there are resistors in our original circuit, the output will eventually follow an exponential decay down to 0 with real world dependent sources. It is expected to follow an exponential decay, but not with the same rate as it would be without any dependent sources. The output will of course depend on the gain of the dependent sources, affecting the rate the output changes. 
 
 
 
@@ -258,7 +431,7 @@ As can be seen in the comparison of the plots shown in Figure 3a and Figure 3b, 
 
 \noindent \underline{\hspace{7in}}\\
 
-\section*{AppendixA}
+\section*{Appendix A}
 \b Here is my C++ code to dynamically approximate the solution to any order differential equation (odeSolve.cpp):
 \begin{lstlisting}
  #include <iostream>
@@ -426,22 +599,10 @@ float getEndTime() {
 }
 \end{lstlisting}
 
-\textbf{Important notes}: Make notes like this
-\begin{lstlisting}
-    Here I put some text files
-\end{lstlisting}
 
 \newpage
 \noindent \underline{\hspace{7in}}\\
 
-\noindent \underline{\hspace{7in}}\\
-\begin{center}
-    \begin{align*}
-        y_0(t) &= c_1e^{-0.1 t} + c_2e^{-0.25 t}[A \cos{5t} + B \sin{5t}]\\
-        \dot{y}_0(t) &= -0.1c_1e^{-0.1 t} \\
-        \textit{Here's how you put math into the code.}
-    \end{align*}
-\end{center}
-\textit{Here is how you add a photo.}
-\includegraphics[scale = 1]{analytical2_a.png}
+\section*{Appendix B: handwork attached below}
+\includepdf[pages=-,pagecommand={},width=\textwidth]{handwork.pdf}
 \end{document}
